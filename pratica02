@@ -1,0 +1,47 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    return '''
+    <a href="/sobre">Sobre</a>
+    <a href="/formacao">Formacao</a>
+    <a href="/esperiencia">Esperiencia</a>
+    <a href="/contatos">Contatos</a>
+    '''
+
+
+# - página sobre eu
+@app.route('/sobre')
+def sobre():
+    return "<h1>Sobre Mim</h1><p>Nascido em Cedro - Ceará, 31 anos, estudante de Sistemas de informação</p>"
+
+
+# página com minha experiência profissional
+@app.route('/experiencia')
+def experiencia():
+    return "<ul><li><h4>Recepcionista Consultorio de Odontologia</h4></li></ul>"
+
+
+# página com sua formação acadêmica
+@app.route('/formacao')
+def formacao():
+    return "<h1>Formação</h1>" \
+           "<ul>" \
+                "<li><h4>Técnico em Informatica Basica. Centec</h4></li>" \
+           "<ul>" \
+                "<li><h4>Técnico em Eletrotecnica. Instituto Federal do Ceará-Campus Cedro</h4></li>" \
+           "<h1>Formação</h1>" \
+           "<li><h4>Bacharelado em Sistemas de Informação. Instituto Federal do Ceará, em andamento</h4></li></ul>"
+
+
+# página com meus contatos
+@app.route('/contatos')
+def contato():
+    return "<p><h1>Meus contatos são:</h1></p><p>Email: maria.aparecida.lima04@aluno.ifce.edu.br</p><p>Telefone: (88)99444-7578</p>"
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
